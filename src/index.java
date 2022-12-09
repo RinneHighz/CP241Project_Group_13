@@ -79,41 +79,17 @@ public class index extends JFrame{
         searchOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                try {
-//
-//                    int key;
-//                    key = Integer.parseInt(JOptionPane.showInputDialog(null, "Order Number : "));
-//
-//                    obj = queue.SearchByOrderNumber(key);
-//                    order = (Order) obj;
-//                    test.printElement(order);
-//                } catch (Exception ex) {
-//                    JOptionPane.showMessageDialog(null, ex.getMessage());
-//                }
-                try {
-                    JTextField fieldKey = new JTextField();
-                    String keyStr = "";
-                    Object[] message = {
-                            "Order Number", fieldKey,
-                    };
+               try {
 
-                    int result = JOptionPane.showConfirmDialog(null, message, "Search Order", JOptionPane.OK_CANCEL_OPTION);
+                   int key;
+                   key = Integer.parseInt(JOptionPane.showInputDialog(null, "Order Number : "));
 
-                    if(result == JOptionPane.OK_OPTION){
-                        keyStr = fieldKey.getText();
-                        int key = Integer.parseInt(keyStr);
-
-                        obj = queue.SearchByOrderNumber(key);
-                        order = (Order) obj;
-                        test.printElement(order);
-
-                    }
-                    else {
-                    }
-
-                }catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage());
-                }
+                   obj = queue.SearchByOrderNumber(key);
+                   order = (Order) obj;
+                   test.printElement(order);
+               } catch (Exception ex) {
+                   JOptionPane.showMessageDialog(null, ex.getMessage());
+               }               
             }
         });
         clearOrderButton.addActionListener(new ActionListener() {
