@@ -79,13 +79,39 @@ public class index extends JFrame{
         searchOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+//                try {
+//
+//                    int key;
+//                    key = Integer.parseInt(JOptionPane.showInputDialog(null, "Order Number : "));
+//
+//                    obj = queue.SearchByOrderNumber(key);
+//                    order = (Order) obj;
+//                    test.printElement(order);
+//                } catch (Exception ex) {
+//                    JOptionPane.showMessageDialog(null, ex.getMessage());
+//                }
                 try {
-                    int key;
-                    key = Integer.parseInt(JOptionPane.showInputDialog(null, "Order Number : "));
-                    obj = queue.SearchByOrderNumber(key);
-                    order = (Order) obj;
-                    test.printElement(order);
-                } catch (Exception ex) {
+                    JTextField fieldKey = new JTextField();
+                    String keyStr = "";
+                    Object[] message = {
+                            "Order Number", fieldKey,
+                    };
+
+                    int result = JOptionPane.showConfirmDialog(null, message, "Search Order", JOptionPane.OK_CANCEL_OPTION);
+
+                    if(result == JOptionPane.OK_OPTION){
+                        keyStr = fieldKey.getText();
+                        int key = Integer.parseInt(keyStr);
+
+                        obj = queue.SearchByOrderNumber(key);
+                        order = (Order) obj;
+                        test.printElement(order);
+
+                    }
+                    else {
+                    }
+
+                }catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
